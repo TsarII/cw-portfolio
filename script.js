@@ -38,9 +38,9 @@ async function loadJson(path) {
   return response.json();
 }
 
-function createArtwork(item, index, allWorks) {
+function createArtwork(item, index, allWorks, type = "illustration") {
   const button = document.createElement("button");
-  button.className = "artwork";
+  button.className = `artwork artwork-${type}`;
   button.type = "button";
   button.setAttribute("aria-label", `Открыть работу ${item.title || index + 1}`);
 
@@ -72,29 +72,38 @@ function createArtwork(item, index, allWorks) {
   return button;
 }
 
-function makeMasonry(items) {
+function makeMasonry(items, type = "illustration") {
   const grid = document.createElement("div");
   grid.className = "masonry";
-  const sorted = [...items].sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+
+  const sorted = [...items].sort(
+    (a, b) => (Number(a.order) || 0) - (Number(b.order) || 0)
+  );
+
   const allWorks = sorted.filter(item => item.image);
-  allWorks.forEach((item, index) => grid.appendChild(createArtwork(item, index, allWorks)));
+
+  allWorks.forEach((item, index) => {
+    grid.appendChild(createArtwork(item, index, allWorks, type));
+  });
+
   if (!allWorks.length) {
     const empty = document.createElement("p");
     empty.className = "empty-section";
     empty.textContent = "Работы пока не добавлены.";
     grid.appendChild(empty);
   }
+
   return grid;
 }
 
-function addSubsection(parent, title, items) {
+function addSubsection(parent, title, items, type) {
   const subsection = document.createElement("section");
   subsection.className = "subsection";
   const heading = document.createElement("h3");
   heading.className = "subsection-title";
   heading.textContent = title;
   subsection.appendChild(heading);
-  subsection.appendChild(makeMasonry(items));
+  subsection.appendChild(makeMasonry(items, type));
   parent.appendChild(subsection);
 }
 
@@ -113,23 +122,23 @@ async function renderGallery() {
     costumesTitle.className = "section-title";
     costumesTitle.textContent = "Костюмы";
     costumes.appendChild(costumesTitle);
-    addSubsection(costumes, "Дополняющие", collections[0].items);
-    addSubsection(costumes, "Перекрывающие", collections[1].items);
+    addSubsection(costumes, "Дополняющие", collections[0].items, "costume");
+    addSubsection(costumes, "Перекрывающие", collections[1].items, "costume");
     gallery.appendChild(costumes);
 
     const standalone = [
-      ["Предметы", collections[2].items],
-      ["Медали", collections[3].items],
-      ["Иллюстрации", collections[4].items]
-    ];
-    standalone.forEach(([title, items]) => {
+  ["Предметы", collections[2].items, "item"],
+  ["Медали", collections[3].items, "medal"],
+  ["Иллюстрации", collections[4].items, "illustration"]
+];
+    standalone.forEach(([title, items, type]) => {
       const section = document.createElement("section");
       section.className = "gallery-section";
       const heading = document.createElement("h2");
       heading.className = "section-title";
       heading.textContent = title;
       section.appendChild(heading);
-      section.appendChild(makeMasonry(items));
+      section.appendChild(makeMasonry(items, type));
       gallery.appendChild(section);
     });
 
@@ -139,8 +148,8 @@ async function renderGallery() {
     backgroundsTitle.className = "section-title";
     backgroundsTitle.textContent = "Фоны";
     backgrounds.appendChild(backgroundsTitle);
-    addSubsection(backgrounds, "Полноценный", collections[5].items);
-    addSubsection(backgrounds, "Украшение", collections[6].items);
+    addSubsection(backgrounds, "Полноценный", collections[5].items, "background");
+    addSubsection(backgrounds, "Украшение", collections[6].items, "background");
     gallery.appendChild(backgrounds);
 
     visibleWorks = collections.flatMap(c => c.items.filter(item => item.image));
