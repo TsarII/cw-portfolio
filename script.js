@@ -49,7 +49,10 @@ function createArtwork(item, index, allWorks, type = "illustration") {
   img.alt = item.title || item.description || "Работа из портфолио";
   img.loading = "lazy";
   img.decoding = "async";
-  button.appendChild(img);
+  const imageBox = document.createElement("span");
+imageBox.className = "artwork-image";
+imageBox.appendChild(img);
+button.appendChild(imageBox);
 
   if (item.title || item.description) {
     const caption = document.createElement("span");
