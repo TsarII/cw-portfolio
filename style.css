@@ -63,6 +63,7 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   columns: 4 220px;
   column-gap: 18px;
 }
+
 .artwork {
   display: block;
   width: 100%;
@@ -86,37 +87,61 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   opacity: .88;
 }
 
+/* Общие параметры подложек */
+.artwork-costume img,
+.artwork-item img,
+.artwork-medal img,
+.artwork-background img {
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 20px;
+  background: var(--field-khaki);
+}
+
 /* Костюмы */
-.artwork.costume img {
+.artwork-costume img {
   width: 200px;
   height: 300px;
-  object-fit: contain;
-  background: var(--field-khaki);
+  padding: 20px;
+  box-sizing: content-box;
 }
 
 /* Предметы */
-.artwork.item img {
+.artwork-item img {
   width: 70px;
   height: 70px;
-  object-fit: contain;
-  background: var(--field-khaki);
+  padding: 20px;
+  box-sizing: content-box;
 }
 
 /* Медали */
-.artwork.medal img {
+.artwork-medal img {
   width: 50px;
   height: 80px;
-  object-fit: contain;
-  background: var(--field-khaki);
+  padding: 20px;
+  box-sizing: content-box;
 }
 
 /* Фоны */
-.artwork.background img {
+.artwork-background img {
   width: 1000px;
   height: 1000px;
+  padding: 20px;
+  box-sizing: content-box;
   max-width: 100%;
-  object-fit: contain;
-  background: var(--field-khaki);
+}
+
+.artwork-caption {
+  display: block;
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.artwork-title {
+  display: block;
+  color: var(--ink);
+  font-size: 12px;
 }
 .artwork:hover img { opacity: .88; }
 .artwork-caption { display: block; padding-top: 8px; color: var(--muted); font-size: 11px; }
