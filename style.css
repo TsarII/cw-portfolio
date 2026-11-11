@@ -66,7 +66,8 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 
 .artwork {
   display: block;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 18px;
   padding: 0;
   break-inside: avoid;
@@ -76,66 +77,79 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   cursor: zoom-in;
 }
 
-.artwork img {
+.artwork-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--field-khaki);
+  overflow: hidden;
+}
+
+.artwork-image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   transition: opacity .2s ease;
 }
 
-.artwork:hover img {
+.artwork:hover .artwork-image img {
   opacity: .88;
 }
 
-/* Общие параметры подложек */
-.artwork-costume img,
-.artwork-item img,
-.artwork-medal img,
-.artwork-background img {
-  margin: 0 auto;
-  object-fit: contain;
-  border-radius: 20px;
-  background: var(--field-khaki);
+/* Костюмы: 200 × 300, подложка 240 × 340 */
+.artwork-costume {
+  width: 240px;
 }
 
-/* Костюмы */
-.artwork-costume img {
-  width: 200px;
-  height: 300px;
-  padding: 20px;
-  box-sizing: content-box;
+.artwork-costume .artwork-image {
+  width: 100%;
+  aspect-ratio: 240 / 340;
 }
 
-/* Предметы */
-.artwork-item img {
-  width: 70px;
-  height: 70px;
-  padding: 20px;
-  box-sizing: content-box;
+/* Предметы: 70 × 70, подложка 110 × 110 */
+.artwork-item {
+  width: 110px;
 }
 
-/* Медали */
-.artwork-medal img {
-  width: 50px;
-  height: 80px;
-  padding: 20px;
-  box-sizing: content-box;
+.artwork-item .artwork-image {
+  width: 100%;
+  aspect-ratio: 1;
 }
 
-/* Фоны */
-.artwork-background img {
-  width: 1000px;
-  height: 1000px;
-  padding: 20px;
-  box-sizing: content-box;
-  max-width: 100%;
+/* Медали: 50 × 80, подложка 90 × 120 */
+.artwork-medal {
+  width: 90px;
 }
 
+.artwork-medal .artwork-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+/* Фоны: 300 × 300, подложка 340 × 340 */
+.artwork-background {
+  width: 340px;
+}
+
+.artwork-background .artwork-image {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+/* Подписи */
 .artwork-caption {
   display: block;
+  width: 100%;
+  box-sizing: border-box;
   padding-top: 8px;
   color: var(--muted);
   font-size: 11px;
+  overflow-wrap: anywhere;
 }
 
 .artwork-title {
