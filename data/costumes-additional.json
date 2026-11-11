@@ -3,5 +3,15 @@
     "image": "images/Frame 7.png",
     "description": "10.11.26",
     "order": 1
+  },
+  {
+    "image": "images/Frame 8.png",
+    "description": "10.11.26",
+    "order": 2
+  },
+  {
+    "image": "images/Frame 9.png",
+    "description": "28.10.26",
+    "order": 3
   }
 ]
