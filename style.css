@@ -60,13 +60,21 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 .subsection:first-of-type { margin-top: 0; }
 .subsection-title { margin: 0 0 20px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .masonry {
-  columns: 4 220px;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, max-content));
+  gap: 18px 12px;
+  align-items: start;
+  justify-content: start;
 }
+
 .masonry-background {
-  columns: 340px;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 340px);
+  gap: 18px 12px;
+  align-items: start;
+  justify-content: start;
 }
+
 .artwork {
   display: block;
   width: fit-content;
