@@ -151,6 +151,16 @@ main {
   justify-content: center;
 }
 
+.intro-meta {
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.text-links {
+  justify-content: center;
+}
+
 .status-divider {
   margin: 0 10px;
   color: var(--antique);
