@@ -75,6 +75,16 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   justify-content: start;
 }
 
+.masonry-item {
+  grid-template-columns: repeat(auto-fill, 110px);
+  gap: 18px 12px;
+}
+
+.masonry-medal {
+  grid-template-columns: repeat(auto-fill, 90px);
+  gap: 18px 12px;
+}
+
 .artwork {
   display: block;
   width: fit-content;
@@ -212,7 +222,6 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   .social-links { gap: 16px; }
   .intro { padding: 68px 0 42px; }
   .intro-meta { display: grid; gap: 14px; }
-  .masonry { columns: 2 140px; column-gap: 10px; }
   .artwork { margin-bottom: 12px; }
   .lightbox { width: 100vw; max-height: 100vh; padding: 52px 38px 24px; }
   .lightbox figure img { max-height: 78vh; }
