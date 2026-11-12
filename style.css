@@ -244,6 +244,10 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 .masonry.masonry-medal {
   grid-template-columns: repeat(auto-fill, 90px) !important;
 }
+
+  .masonry {
+  grid-template-columns: repeat(4, 240px) !important;
+}
   .lightbox-prev { left: 4px; }
   .lightbox-next { right: 4px; }
 }
