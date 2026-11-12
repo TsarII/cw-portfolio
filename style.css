@@ -358,6 +358,16 @@ main {
   .masonry {
   grid-template-columns: repeat(4, 240px) !important;
 }
+
+  .status-closed {
+  color: #9b5148;
+  font-weight: 600;
+}
+
+.status-open {
+  color: #526d43;
+  font-weight: 600;
+}
   .lightbox-prev { left: 4px; }
   .lightbox-next { right: 4px; }
 }
