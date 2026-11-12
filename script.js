@@ -77,7 +77,7 @@ button.appendChild(imageBox);
 
 function makeMasonry(items, type = "illustration") {
   const grid = document.createElement("div");
-  grid.className = "masonry";
+  grid.className = `masonry masonry-${type}`;
 
   const sorted = [...items].sort(
     (a, b) => (Number(a.order) || 0) - (Number(b.order) || 0)
