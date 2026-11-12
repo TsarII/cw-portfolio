@@ -77,12 +77,12 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 
 .masonry-item {
   grid-template-columns: repeat(auto-fill, 110px);
-  gap: 18px 12px;
+  column-gap: 12px;
 }
 
 .masonry-medal {
   grid-template-columns: repeat(auto-fill, 90px);
-  gap: 18px 12px;
+  column-gap: 12px;
 }
 
 .artwork {
@@ -225,6 +225,24 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
   .artwork { margin-bottom: 12px; }
   .lightbox { width: 100vw; max-height: 100vh; padding: 52px 38px 24px; }
   .lightbox figure img { max-height: 78vh; }
+
+  /* Исправление расстояний между предметами и медалями */
+.masonry.masonry-item,
+.masonry.masonry-medal {
+  display: grid !important;
+  justify-content: start !important;
+  align-items: start;
+  column-gap: 12px !important;
+  row-gap: 18px !important;
+}
+
+.masonry.masonry-item {
+  grid-template-columns: repeat(auto-fill, 110px) !important;
+}
+
+.masonry.masonry-medal {
+  grid-template-columns: repeat(auto-fill, 90px) !important;
+}
   .lightbox-prev { left: 4px; }
   .lightbox-next { right: 4px; }
 }
