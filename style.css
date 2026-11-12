@@ -61,18 +61,13 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 .subsection-title { margin: 0 0 20px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
   gap: 18px 12px;
   align-items: start;
   justify-content: start;
 }
 
-.masonry-background {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 340px);
-  gap: 18px 12px;
-  align-items: start;
-  justify-content: start;
+.masonry-costume {
+  grid-template-columns: repeat(auto-fill, 240px);
 }
 
 .masonry-item {
@@ -81,6 +76,14 @@ h1 { margin: 0 0 22px; font-size: clamp(34px, 5vw, 62px); font-weight: 500; lett
 
 .masonry-medal {
   grid-template-columns: repeat(auto-fill, 90px);
+}
+
+.masonry-background {
+  grid-template-columns: repeat(auto-fill, 340px);
+}
+
+.masonry-illustration {
+  grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
 }
 
 .artwork {
