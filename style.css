@@ -139,6 +139,18 @@ main {
   padding-bottom: 3px;
 }
 
+.intro {
+  text-align: center;
+}
+
+.intro-meta {
+  justify-content: center;
+}
+
+.text-links {
+  justify-content: center;
+}
+
 /* Мобильная версия */
 @media (max-width: 700px) {
   .site-header,
